@@ -1,0 +1,35 @@
+{% extends 'header.html' %} 
+
+{% block cal %}
+
+<div class="container "> <b>Calculator</b> </div>
+<div class="container pt-3 pb-3 m-20" style="background-color: aqua;">Select two numbers and one operator</div>
+<form method="post">
+    {% csrf_token %}
+    <div class="container">
+        <label>Enter value 1</label><br>
+        <input type="text"  name="val1" value={{val1}}>
+    </div>
+    <div class="container">
+        <label>Select Operator</label><br>
+        <select name="operator">
+            <option name="+">+</option>
+            <option name="-">-</option>
+            <option name="*">*</option>
+            <option name="/">/</option>
+        </select>
+    </div>
+    <div class="container">
+        <label>Enter value 2</label><br>
+        <input type="text" name="val2" value={{val2}}>
+    </div>
+    <div class="container mt-5">
+        <button type="submit"><b>Submit</b></button>
+    </div>
+    <div class="container mt-3">
+        <label>Answer is..</label><br>
+        <input type="text"  value="{{output}}">        
+    </div>
+    </form>
+
+{% endblock %}
